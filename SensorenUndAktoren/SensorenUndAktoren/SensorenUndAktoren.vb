@@ -34,11 +34,10 @@ Public Class SensorenUndAktoren
         _SwApp = iswapp
 
         'Attribut definieren (Nur 1x pro Laufzeit SWX!)
-        AttributDefinition = Me.SwApp.IDefineAttribute("Elektropneumatik")
+        AttributDefinition = Me.SwApp.IDefineAttribute("MAISUNDA-V0.1")
         AttributDefinition.AddParameter("Hash", swParamType_e.swParamTypeString, 0.0#, 0)
         AttributDefinition.AddParameter("BMK", swParamType_e.swParamTypeString, 0.0#, 0)
         AttributDefinition.AddParameter("Bezeichnung", swParamType_e.swParamTypeString, 0.0#, 0)
-
         'Attribut registrieren (Nur 1x pro Laufzeit SWX!)
         AttributDefinition.Register()
     End Sub
@@ -62,17 +61,27 @@ Public Class SensorenUndAktoren
         Dim SelMgr As ISelectionMgr = modeldoc.ISelectionManager
         Dim icomp As IComponent2
         Dim Att As Attribute
+        Dim Parameter As Parameter
 
 
         icomp = SelMgr.GetSelectedObject6(1, -1)
 
+        'Test ob schon ein Attribut angehängt wurde
+        If IsNothing(icomp.FindAttribute(AttributDefinition, 0)) Then
+
+            Att = Me.AttributDefinition.CreateInstance5(modeldoc, icomp, CreateUniqueFeatureName("Elektropneumatik", modeldoc), 0, swInConfigurationOpts_e.swAllConfiguration)
+            Parameter = Att.GetParameter("Hash")
+            Parameter.SetStringValue2(System.Guid.NewGuid.ToString, swConfigurationOptions2_e.swConfigOption_LinkToParent, "")
+            MsgBox(Att.IGetComponent2.GetPathName())
+            modeldoc.EditRebuild3()
+        Else
+            MsgBox("Fehler: Da hängt schon was!")
+        End If
 
 
-        Att = Me.AttributDefinition.CreateInstance5(modeldoc, icomp, CreateUniqueFeatureName("Elektropneumatik", modeldoc), 0, swInConfigurationOpts_e.swAllConfiguration)
 
-        MsgBox(Att.IGetComponent2.GetPathName())
-        modeldoc.EditRebuild3()
-
+        'NUR TEST
+        GetAllAttributes(modeldoc)
     End Sub
 
     Private Function CreateUniqueFeatureName(ByVal Name As String, ByRef Modeldoc As ModelDoc2) As String
@@ -99,9 +108,52 @@ Public Class SensorenUndAktoren
         End If
 
         CreateUniqueFeatureName = RetName
-
-
-
     End Function
 
+
+
+    Sub GetAllAttributes(Modeldoc As ModelDoc2)
+
+        Dim AllComponents As Object
+        Dim Assy As AssemblyDoc = Modeldoc
+        Dim Comp As Component2
+        Dim Compcount As Integer = Assy.GetComponentCount(True)
+        Dim tmpAttribute As Attribute
+        Dim tmpParameter As Parameter
+
+        AllComponents = Assy.GetComponents(True)
+
+
+        For index = 1 To Compcount Step 1
+
+            Comp = AllComponents(index - 1)
+
+            tmpAttribute = Comp.FindAttribute(AttributDefinition, 0)
+
+            'Prüfen ob Attribut vorhanden
+            If IsNothing(tmpAttribute) = False Then
+
+                
+
+                    tmpParameter = tmpAttribute.GetParameter("Hash")
+
+                    Debug.Print("UUID: " & tmpParameter.GetStringValue() & " --> " & Comp.GetPathName())
+
+
+            End If
+
+
+        Next
+
+
+
+
+
+
+
+
+
+
+
+    End Sub
 End Class
