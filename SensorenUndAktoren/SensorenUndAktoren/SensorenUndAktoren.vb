@@ -30,21 +30,29 @@ Public Class SensorenUndAktoren
 
     End Sub
 
+    ''' <summary>
+    ''' Atributte registrieren (Nur 1x Pro Laufzeit SWX!!)
+    ''' </summary>
+    ''' <param name="iswapp">SolidWorks Applikation</param>
+    ''' <remarks></remarks>
     Public Sub initalisierung(ByRef iswapp As SldWorks)
         _SwApp = iswapp
+
 
         'Attribut definieren (Nur 1x pro Laufzeit SWX!)
         AttributDefinition = Me.SwApp.IDefineAttribute("MAISUNDA-V0.1")
         AttributDefinition.AddParameter("Hash", swParamType_e.swParamTypeString, 0.0#, 0)
         AttributDefinition.AddParameter("BMK", swParamType_e.swParamTypeString, 0.0#, 0)
         AttributDefinition.AddParameter("Bezeichnung", swParamType_e.swParamTypeString, 0.0#, 0)
+        AttributDefinition.AddParameter("Typ", swParamType_e.swParamTypeString, 0.0#, 0)
+        AttributDefinition.AddParameter("Abfrage Stellung", swParamType_e.swParamTypeString, 0.0#, 0)
+        AttributDefinition.AddParameter("Grundstellung", swParamType_e.swParamTypeString, 0.0#, 0)
         'Attribut registrieren (Nur 1x pro Laufzeit SWX!)
         AttributDefinition.Register()
     End Sub
 
 
     Public Sub AddAttributeToComponent()
-
 
         Dim modeldoc As ModelDoc2 = SwApp.ActiveDoc
 
@@ -55,8 +63,6 @@ Public Class SensorenUndAktoren
             Throw New AggregateException
 
         End If
-
-
 
         Dim SelMgr As ISelectionMgr = modeldoc.ISelectionManager
         Dim icomp As IComponent2
@@ -84,12 +90,18 @@ Public Class SensorenUndAktoren
         GetAllAttributes(modeldoc)
     End Sub
 
+
+    ''' <summary>
+    ''' Eindeutigen Featurenamen im Featurebaum erzeugen.
+    ''' Feature -> Feature1 -> Feature2
+    ''' </summary>
+    ''' <param name="Name">gewünschter Featurename</param>
+    ''' <param name="Modeldoc">Dokument als Modeldoc2</param>
+    ''' <returns>Eindeutiger Featurename als String</returns>
+    ''' <remarks></remarks>
     Private Function CreateUniqueFeatureName(ByVal Name As String, ByRef Modeldoc As ModelDoc2) As String
 
-
-
-        Dim FeatureMgr As FeatureManager = ModelDoc.FeatureManager
-
+        Dim FeatureMgr As FeatureManager = Modeldoc.FeatureManager
         Dim RetName As String = Name
         Dim index As Long = 1
 
@@ -111,7 +123,12 @@ Public Class SensorenUndAktoren
     End Function
 
 
-
+    ''' <summary>
+    ''' Debugprozedur sucht alle Komponenten mit angehängtem Attribut und gibt den 
+    ''' Hash des Attributes und den Pfadnamen der Komponentendatei aus.
+    ''' </summary>
+    ''' <param name="Modeldoc">Dokument</param>
+    ''' <remarks></remarks>
     Sub GetAllAttributes(Modeldoc As ModelDoc2)
 
         Dim AllComponents As Object
@@ -133,7 +150,6 @@ Public Class SensorenUndAktoren
             'Prüfen ob Attribut vorhanden
             If IsNothing(tmpAttribute) = False Then
 
-                
 
                     tmpParameter = tmpAttribute.GetParameter("Hash")
 
@@ -141,19 +157,10 @@ Public Class SensorenUndAktoren
 
 
             End If
-
-
         Next
-
-
-
-
-
-
-
-
-
-
-
     End Sub
+
+
+
+
 End Class
