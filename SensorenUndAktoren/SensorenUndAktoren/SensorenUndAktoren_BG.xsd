@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SensorenUndAktoren_BG" targetNamespace="http://tempuri.org/SensorenUndAktoren_BG.xsd" xmlns:mstns="http://tempuri.org/SensorenUndAktoren_BG.xsd" xmlns="http://tempuri.org/SensorenUndAktoren_BG.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SensorenUndAktoren_BG" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SensorenUndAktoren_BG" msprop:Generator_UserDSName="SensorenUndAktoren_BG">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TabelleBaugruppe" msprop:Generator_TableClassName="TabelleBaugruppeDataTable" msprop:Generator_TableVarName="tableTabelleBaugruppe" msprop:Generator_RowChangedName="TabelleBaugruppeRowChanged" msprop:Generator_TablePropName="TabelleBaugruppe" msprop:Generator_RowDeletingName="TabelleBaugruppeRowDeleting" msprop:Generator_RowChangingName="TabelleBaugruppeRowChanging" msprop:Generator_RowEvHandlerName="TabelleBaugruppeRowChangeEventHandler" msprop:Generator_RowDeletedName="TabelleBaugruppeRowDeleted" msprop:Generator_RowClassName="TabelleBaugruppeRow" msprop:Generator_UserTableName="TabelleBaugruppe" msprop:Generator_RowEvArgName="TabelleBaugruppeRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Bezeichnung" msprop:Generator_ColumnVarNameInTable="columnBezeichnung" msprop:Generator_ColumnPropNameInRow="Bezeichnung" msprop:Generator_ColumnPropNameInTable="BezeichnungColumn" msprop:Generator_UserColumnName="Bezeichnung" type="xs:string" minOccurs="0" />
+              <xs:element name="GUID" msprop:Generator_ColumnVarNameInTable="columnGUID" msprop:Generator_ColumnPropNameInRow="GUID" msprop:Generator_ColumnPropNameInTable="GUIDColumn" msprop:Generator_UserColumnName="GUID" type="xs:string" />
+              <xs:element name="Typ" msprop:Generator_ColumnVarNameInTable="columnTyp" msprop:Generator_ColumnPropNameInRow="Typ" msprop:Generator_ColumnPropNameInTable="TypColumn" msprop:Generator_UserColumnName="Typ" type="xs:string" minOccurs="0" />
+              <xs:element name="Funktion" msprop:Generator_ColumnVarNameInTable="columnFunktion" msprop:Generator_ColumnPropNameInRow="Funktion" msprop:Generator_ColumnPropNameInTable="FunktionColumn" msprop:Generator_UserColumnName="Funktion" type="xs:string" minOccurs="0" />
+              <xs:element name="Grundstellung" msprop:Generator_ColumnVarNameInTable="columnGrundstellung" msprop:Generator_ColumnPropNameInRow="Grundstellung" msprop:Generator_ColumnPropNameInTable="GrundstellungColumn" msprop:Generator_UserColumnName="Grundstellung" type="xs:string" minOccurs="0" />
+              <xs:element name="BMK" msprop:Generator_ColumnVarNameInTable="columnBMK" msprop:Generator_ColumnPropNameInRow="BMK" msprop:Generator_ColumnPropNameInTable="BMKColumn" msprop:Generator_UserColumnName="BMK" type="xs:string" minOccurs="0" />
+              <xs:element name="Unterdrückt" msprop:Generator_ColumnVarNameInTable="columnUnterdrückt" msprop:Generator_ColumnPropNameInRow="Unterdrückt" msprop:Generator_ColumnPropNameInTable="UnterdrücktColumn" msprop:Generator_UserColumnName="Unterdrückt" type="xs:string" minOccurs="0" />
+              <xs:element name="Koppelung" msprop:Generator_ColumnVarNameInTable="columnKoppelung" msprop:Generator_ColumnPropNameInRow="Koppelung" msprop:Generator_ColumnPropNameInTable="KoppelungColumn" msprop:Generator_UserColumnName="Koppelung" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="TabelleBaugruppeKey1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TabelleBaugruppe" />
+      <xs:field xpath="mstns:GUID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

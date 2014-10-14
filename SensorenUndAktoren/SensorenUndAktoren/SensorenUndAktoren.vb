@@ -19,7 +19,7 @@ Public Class SensorenUndAktoren
 
     Public AttributDefinition As IAttributeDef
     
-
+    Dim BgTabelle As New SensorenUndAktoren_BG
 
 
     Public Sub New()
@@ -90,6 +90,31 @@ Public Class SensorenUndAktoren
         GetAllAttributes(modeldoc)
     End Sub
 
+    Public Sub BearbeitenForm()
+
+
+        If BgDateiLesen() = False Then
+            MsgBox("Fehler keine Tabelle in der Baugruppe gefunden!")
+        End If
+
+
+
+    End Sub
+
+
+    Private Function BgDateiLesen() As Boolean
+
+
+    End Function
+
+
+
+    Private Function BgDateiErzeugen() As Boolean
+
+
+    End Function
+
+
 
     ''' <summary>
     ''' Eindeutigen Featurenamen im Featurebaum erzeugen.
@@ -138,8 +163,7 @@ Public Class SensorenUndAktoren
         Dim tmpAttribute As Attribute
         Dim tmpParameter As Parameter
 
-        AllComponents = Assy.GetComponents(True)
-
+        AllComponents = Assy.GetComponents(True) 'True = nur Toplevel
 
         For index = 1 To Compcount Step 1
 
@@ -151,9 +175,9 @@ Public Class SensorenUndAktoren
             If IsNothing(tmpAttribute) = False Then
 
 
-                    tmpParameter = tmpAttribute.GetParameter("Hash")
+                tmpParameter = tmpAttribute.GetParameter("Hash")
 
-                    Debug.Print("UUID: " & tmpParameter.GetStringValue() & " --> " & Comp.GetPathName())
+                Debug.Print("UUID: " & tmpParameter.GetStringValue() & " --> " & Comp.GetPathName())
 
 
             End If
