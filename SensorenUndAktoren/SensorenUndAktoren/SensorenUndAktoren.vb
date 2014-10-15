@@ -19,7 +19,7 @@ Public Class SensorenUndAktoren
 
     Public AttributDefinition As IAttributeDef
     
-    Dim BgTabelle As New SensorenUndAktoren_BG
+    Dim BgDataset As New SensorenUndAktoren_BG
 
 
     Public Sub New()
@@ -92,18 +92,84 @@ Public Class SensorenUndAktoren
 
     Public Sub BearbeitenForm()
 
+        Dim Form As New SundA_Form
+
+        BgDataset.Clear()
+
 
         If BgDateiLesen() = False Then
-            MsgBox("Fehler keine Tabelle in der Baugruppe gefunden!")
+            MsgBox("Keine Tabelle in der Baugruppe gefunden!")
+            DatenAusSwxEinlesen()
+            HashInTabelleSchreiben(DatenAusSwxEinlesen()) 'Hashtabelle 
+
+            Form.Show()
+
         End If
+
 
 
 
     End Sub
 
 
+    ''' <summary>
+    ''' Hashliste der SWX-Komponenten aus SWX auslesen
+    ''' </summary>
+    ''' <returns></returns>
+    ''' Liste der gefundenen Hashs
+    ''' <remarks></remarks>
+    Private Function DatenAusSwxEinlesen() As List(Of String)
+
+        Dim modeldoc As ModelDoc2 = SwApp.ActiveDoc
+        Dim Toplevel As Boolean = True
+        Dim HashListe As New List(Of String)
+        HashListe.Clear()
+
+        'Prüfen ob das Dokument eine Baugruppe ist
+        If modeldoc.GetType <> swDocumentTypes_e.swDocASSEMBLY Then
+
+            MsgBox("Dokument ist keine Baugruppe!")
+            Throw New AggregateException
+
+        End If
+
+        Dim FeatureMgr As FeatureManager = modeldoc.FeatureManager      'Featuremanager erzeugen
+        Dim Features As Object = FeatureMgr.GetFeatures(Toplevel)           'Features bekommen (True = nur Toplevel)
+        Dim Feature As Feature
+        Dim tmpAttribute As Attribute = Nothing
+        Dim tmpParameter As Parameter
+
+
+        For index = 0 To (FeatureMgr.GetFeatureCount(Toplevel) - 1)
+
+
+
+
+            Feature = Features(index)
+            Debug.Print("Feature: " & Feature.Name & "  Index: " & index)
+
+
+
+
+
+            If Feature.GetTypeName2() = "Attribute" Then 'Feature swTnAttribute
+
+
+                tmpAttribute = Feature.GetSpecificFeature2()
+                tmpParameter = tmpAttribute.IGetParameter("Hash")
+                HashListe.Add(tmpParameter.GetStringValue)
+                Debug.Print("Hash: " & tmpParameter.GetStringValue)
+
+            End If
+        Next
+
+        Return HashListe
+    End Function
+
+
     Private Function BgDateiLesen() As Boolean
 
+        BgDateiLesen = False
 
     End Function
 
@@ -114,6 +180,27 @@ Public Class SensorenUndAktoren
 
     End Function
 
+    Private Function HashInTabelleSchreiben(HashListe As List(Of String)) As Boolean
+
+        Dim tempRow As SensorenUndAktoren_BG.TabelleBaugruppeRow
+
+
+
+        For Each item As String In HashListe
+
+            If BgDataset.TabelleBaugruppe.Rows.Find(item) Is Nothing Then   'Prüfen ob GUID schon vorhanden
+
+                tempRow = BgDataset.TabelleBaugruppe.NewTabelleBaugruppeRow  'Neue Zeile Erzeugen
+
+                tempRow.GUID = item 'GUId in Zeile eintragen
+                BgDataset.TabelleBaugruppe.AddTabelleBaugruppeRow(tempRow) 'Zeile in Tabelle einfügen
+
+            End If
+        Next
+
+        Return True
+
+    End Function
 
 
     ''' <summary>

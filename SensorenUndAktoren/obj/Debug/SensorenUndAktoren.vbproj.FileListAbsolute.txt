@@ -15,9 +15,9 @@ C:\Users\ralphm\Documents\GitHub\SensorenUndAktoren\SensorenUndAktoren\obj\Debug
 C:\Users\ralphm\Documents\GitHub\SensorenUndAktoren\SensorenUndAktoren\obj\Debug\SensorenUndAktoren.dll
 C:\Users\ralphm\Documents\GitHub\SensorenUndAktoren\SensorenUndAktoren\obj\Debug\SwVBAddin1.xml
 C:\Users\ralphm\Documents\GitHub\SensorenUndAktoren\SensorenUndAktoren\obj\Debug\SensorenUndAktoren.pdb
-C:\Users\ralphm\Documents\GitHub\SensorenUndAktoren\SensorenUndAktoren\bin\SensorenUndAktoren.dll.config
 C:\Users\ralphm\Documents\GitHub\SensorenUndAktoren\SensorenUndAktoren\bin\SensorenUndAktoren.dll
 C:\Users\ralphm\Documents\GitHub\SensorenUndAktoren\SensorenUndAktoren\bin\SensorenUndAktoren.pdb
 C:\Users\ralphm\Documents\GitHub\SensorenUndAktoren\SensorenUndAktoren\bin\SwVBAddin1.xml
 C:\Users\ralphm\Documents\GitHub\SensorenUndAktoren\SensorenUndAktoren\bin\SensorenUndAktoren.tlb
 C:\Users\ralphm\Documents\GitHub\SensorenUndAktoren\SensorenUndAktoren\bin\SolidWorksTools.dll
+C:\Users\ralphm\Documents\GitHub\SensorenUndAktoren\SensorenUndAktoren\obj\Debug\SensorenUndAktoren.SundA_Form.resources

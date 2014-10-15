@@ -35,6 +35,7 @@ Public Class SwAddin
 
     Public Const mainCmdGroupID As Integer = 0
     Public Const mainItemID1 As Integer = 0
+    Public Const mainItemID2 As Integer = 0
     
 
     Public Const flyoutGroupID As Integer = 91
@@ -178,6 +179,7 @@ Public Class SwAddin
 
         '#Index der Funktionen
         Dim cmdIndex0 As Integer
+        Dim cmdIndex1 As Integer
 
 
         Dim Title As String = "SensorenUndAktoren"
@@ -228,6 +230,15 @@ Public Class SwAddin
                                              mainItemID1, _
                                              menuToolbarOption)
 
+        cmdIndex1 = cmdGroup.AddCommandItem2("E-Komponenten bearbeiten", _
+                                             -1, _
+                                             "Bearbeiten der Sensoren und Aktoren in dieser Baugruppe", _
+                                             "Bearbeiten der Sensoren und Aktoren in dieser Baugruppe", _
+                                             11, _
+                                             "SATabelle", _
+                                             "", _
+                                             mainItemID2, _
+                                             menuToolbarOption)
 
 
 
@@ -465,13 +476,16 @@ Public Class SwAddin
 
     Sub SAeinfuegen()
 
-
-
         SundA.AddAttributeToComponent()
-
 
     End Sub
 
+
+    Sub SATabelle()
+
+        SundA.BearbeitenForm()
+
+    End Sub
 
     'Beispiel
     Sub CreateCube()

@@ -19,6 +19,51 @@ SensorenUndAktoren
 	<summary>
   Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
 </summary>
+</member><member name="M:SensorenUndAktoren.SensorenUndAktoren.initalisierung(SolidWorks.Interop.sldworks.SldWorks@)">
+	<summary>
+ Atributte registrieren (Nur 1x Pro Laufzeit SWX!!)
+ </summary>
+	<param name="iswapp">SolidWorks Applikation</param>
+	<remarks></remarks>
+</member><member name="M:SensorenUndAktoren.SensorenUndAktoren.DatenAusSwxEinlesen">
+	<summary>
+ Hashliste der SWX-Komponenten aus SWX auslesen
+ </summary>
+	<returns></returns>
+ Liste der gefundenen Hashs
+ <remarks></remarks>
+</member><member name="M:SensorenUndAktoren.SensorenUndAktoren.CreateUniqueFeatureName(System.String,SolidWorks.Interop.sldworks.ModelDoc2@)">
+	<summary>
+ Eindeutigen Featurenamen im Featurebaum erzeugen.
+ Feature -&gt; Feature1 -&gt; Feature2
+ </summary>
+	<param name="Name">gewünschter Featurename</param>
+	<param name="Modeldoc">Dokument als Modeldoc2</param>
+	<returns>Eindeutiger Featurename als String</returns>
+	<remarks></remarks>
+</member><member name="M:SensorenUndAktoren.SensorenUndAktoren.GetAllAttributes(SolidWorks.Interop.sldworks.ModelDoc2)">
+	<summary>
+ Debugprozedur sucht alle Komponenten mit angehängtem Attribut und gibt den 
+ Hash des Attributes und den Pfadnamen der Komponentendatei aus.
+ </summary>
+	<param name="Modeldoc">Dokument</param>
+	<remarks></remarks>
+</member><member name="T:SensorenUndAktoren.SensorenUndAktoren_BG.TabelleBaugruppeDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SensorenUndAktoren.SensorenUndAktoren_BG.TabelleBaugruppeRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SensorenUndAktoren.SensorenUndAktoren_BG.TabelleBaugruppeRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SensorenUndAktoren.SensorenUndAktoren_BG">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
 </member>
 </members>
 </doc>
