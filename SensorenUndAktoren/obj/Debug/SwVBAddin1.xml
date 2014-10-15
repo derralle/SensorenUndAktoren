@@ -6,20 +6,7 @@ SensorenUndAktoren
 </name>
 </assembly>
 <members>
-<member name="P:SensorenUndAktoren.My.Resources.Resources.ResourceManager">
-	<summary>
-  Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
-</summary>
-</member><member name="P:SensorenUndAktoren.My.Resources.Resources.Culture">
-	<summary>
-  Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
-  Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
-</summary>
-</member><member name="T:SensorenUndAktoren.My.Resources.Resources">
-	<summary>
-  Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
-</summary>
-</member><member name="M:SensorenUndAktoren.SensorenUndAktoren.initalisierung(SolidWorks.Interop.sldworks.SldWorks@)">
+<member name="M:SensorenUndAktoren.SensorenUndAktoren.initalisierung(SolidWorks.Interop.sldworks.SldWorks@)">
 	<summary>
  Atributte registrieren (Nur 1x Pro Laufzeit SWX!!)
  </summary>
@@ -32,6 +19,26 @@ SensorenUndAktoren
 	<returns></returns>
  Liste der gefundenen Hashs
  <remarks></remarks>
+</member><member name="M:SensorenUndAktoren.SensorenUndAktoren.BgDateiLesen">
+	<summary>
+ Liest eine existierende Dataset-Datei ein 
+ </summary>
+	<returns></returns>
+ True wenn Datei vorhanden und ?eingelesen?
+ False wenn Datei nicht vorhanden
+ <remarks></remarks>
+</member><member name="M:SensorenUndAktoren.SensorenUndAktoren.BgDateiErzeugen">
+	<summary>
+ Tabelle in Datei Schreiben welche den selben Namen und Pfad hat wie die Baugruppe (Außer der Endung ".SundA")
+ </summary>
+	<remarks></remarks>
+</member><member name="M:SensorenUndAktoren.SensorenUndAktoren.HashInTabelleSchreiben(System.Collections.Generic.List{System.String})">
+	<summary>
+ Schreibt die Übergebene Liste in die Tabelle
+ </summary>
+	<param name="HashListe"></param>
+	<returns></returns>
+	<remarks></remarks>
 </member><member name="M:SensorenUndAktoren.SensorenUndAktoren.CreateUniqueFeatureName(System.String,SolidWorks.Interop.sldworks.ModelDoc2@)">
 	<summary>
  Eindeutigen Featurenamen im Featurebaum erzeugen.
@@ -48,6 +55,24 @@ SensorenUndAktoren
  </summary>
 	<param name="Modeldoc">Dokument</param>
 	<remarks></remarks>
+</member><member name="M:SensorenUndAktoren.SensorenUndAktoren.BaumstrukturAufbauen(System.Windows.Forms.TreeView@)">
+	<summary>
+ Baut die Baumstruktur im Form auf
+ </summary>
+	<remarks></remarks>
+</member><member name="P:SensorenUndAktoren.My.Resources.Resources.ResourceManager">
+	<summary>
+  Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
+</summary>
+</member><member name="P:SensorenUndAktoren.My.Resources.Resources.Culture">
+	<summary>
+  Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
+  Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
+</summary>
+</member><member name="T:SensorenUndAktoren.My.Resources.Resources">
+	<summary>
+  Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
+</summary>
 </member><member name="T:SensorenUndAktoren.SensorenUndAktoren_BG.TabelleBaugruppeDataTable">
 	<summary>
 Represents the strongly named DataTable class.

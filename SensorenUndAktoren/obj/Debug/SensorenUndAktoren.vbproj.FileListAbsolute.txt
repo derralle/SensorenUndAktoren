@@ -1,4 +1,3 @@
-C:\Users\Ralph\APPS\GitHub\SensorenUndAktoren\SensorenUndAktoren\bin\SensorenUndAktoren.dll.config
 C:\Users\Ralph\APPS\GitHub\SensorenUndAktoren\SensorenUndAktoren\bin\SensorenUndAktoren.dll
 C:\Users\Ralph\APPS\GitHub\SensorenUndAktoren\SensorenUndAktoren\bin\SensorenUndAktoren.pdb
 C:\Users\Ralph\APPS\GitHub\SensorenUndAktoren\SensorenUndAktoren\bin\SwVBAddin1.xml
@@ -21,3 +20,5 @@ C:\Users\ralphm\Documents\GitHub\SensorenUndAktoren\SensorenUndAktoren\bin\SwVBA
 C:\Users\ralphm\Documents\GitHub\SensorenUndAktoren\SensorenUndAktoren\bin\SensorenUndAktoren.tlb
 C:\Users\ralphm\Documents\GitHub\SensorenUndAktoren\SensorenUndAktoren\bin\SolidWorksTools.dll
 C:\Users\ralphm\Documents\GitHub\SensorenUndAktoren\SensorenUndAktoren\obj\Debug\SensorenUndAktoren.SundA_Form.resources
+C:\Users\Ralph\APPS\GitHub\SensorenUndAktoren\SensorenUndAktoren\obj\Debug\SensorenUndAktoren.vbprojResolveAssemblyReference.cache
+C:\Users\Ralph\APPS\GitHub\SensorenUndAktoren\SensorenUndAktoren\obj\Debug\SensorenUndAktoren.SundA_Form.resources

@@ -747,11 +747,11 @@ Partial Public Class SensorenUndAktoren_BG
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Property Koppelung() As String
             Get
-                Try
+                If Me.IsKoppelungNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableTabelleBaugruppe.KoppelungColumn), String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("Der Wert für Spalte Koppelung in Tabelle TabelleBaugruppe ist DBNull.", e)
-                End Try
+                End If
             End Get
             Set(value As String)
                 Me(Me.tableTabelleBaugruppe.KoppelungColumn) = value

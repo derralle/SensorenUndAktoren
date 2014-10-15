@@ -1,6 +1,7 @@
 ﻿Imports SolidWorks.Interop.sldworks
 Imports SolidWorks.Interop.swconst
 Imports System.Collections.Generic
+Imports System.Windows.Forms
 
 
 Public Class SensorenUndAktoren
@@ -20,7 +21,6 @@ Public Class SensorenUndAktoren
     Public AttributDefinition As IAttributeDef
     
     Dim WithEvents BgDataset As New SensorenUndAktoren_BG
-    Dim WithEvents BgBaum As New TreeControlItem
     Dim WithEvents Form As New SundA_Form
 
     Public Sub New()
@@ -100,15 +100,16 @@ Public Class SensorenUndAktoren
 
         If BgDateiLesen() = False Then
             MsgBox("Keine Tabelle in der Baugruppe gefunden!")
-            DatenAusSwxEinlesen()
-            HashInTabelleSchreiben(DatenAusSwxEinlesen()) 'Hashtabelle 
-            Form.DataGridView_Baugruppe.DataSource = BgDataset.TabelleBaugruppe
-            Form.Show()
-
         End If
+        DatenAusSwxEinlesen()
+        HashInTabelleSchreiben(DatenAusSwxEinlesen()) 'Hashtabelle 
+
+        Form = New SundA_Form
 
 
-
+        Form.DataGridView_Baugruppe.DataSource = BgDataset.TabelleBaugruppe
+        BaumstrukturAufbauen(Form.TreeView1)
+        Form.Show()
 
     End Sub
 
@@ -168,9 +169,31 @@ Public Class SensorenUndAktoren
     End Function
 
 
+    ''' <summary>
+    ''' Liest eine existierende Dataset-Datei ein 
+    ''' </summary>
+    ''' <returns></returns>
+    ''' True wenn Datei vorhanden und ?eingelesen?
+    ''' False wenn Datei nicht vorhanden
+    ''' <remarks></remarks>
     Private Function BgDateiLesen() As Boolean
+        Dim ModelDoc As ModelDoc2 = Me.SwApp.ActiveDoc
+        Dim Dateiname As String = ModelDoc.GetPathName
 
-        BgDateiLesen = False
+        Dateiname = Dateiname.Substring(0, Dateiname.LastIndexOf("."))  'Dateiendung entfernen
+
+        Dateiname = Dateiname & ".SundA" 'neue Dateiendung hinzufügen
+
+        If FileIO.FileSystem.FileExists(Dateiname) Then
+
+            BgDataset.Clear()
+            BgDataset.ReadXml(Dateiname)
+            BgDateiLesen = True
+        Else
+            BgDateiLesen = False
+        End If
+
+
 
     End Function
 
@@ -192,11 +215,16 @@ Public Class SensorenUndAktoren
 
     End Sub
 
+
+    ''' <summary>
+    ''' Schreibt die Übergebene Liste in die Tabelle
+    ''' </summary>
+    ''' <param name="HashListe"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Private Function HashInTabelleSchreiben(HashListe As List(Of String)) As Boolean
 
         Dim tempRow As SensorenUndAktoren_BG.TabelleBaugruppeRow
-
-
 
         For Each item As String In HashListe
 
@@ -282,7 +310,69 @@ Public Class SensorenUndAktoren
         Next
     End Sub
 
+    ''' <summary>
+    ''' Baut die Baumstruktur im Form auf
+    ''' </summary>
+    ''' <remarks></remarks>
+    ''' 
+    Sub BaumstrukturAufbauen(ByRef TreeView As Windows.Forms.TreeView)
+
+        Dim zaehler As Long = BgDataset.TabelleBaugruppe.Rows.Count
+        Dim MaximaleIterationen As Long = 1000
+
+        TreeView.Nodes.Clear()
 
 
+        '
+        'Wurzelknoten erzeugen
+        '
+        For Each row As SensorenUndAktoren_BG.TabelleBaugruppeRow In BgDataset.TabelleBaugruppe
+
+            Dim Node As New Windows.Forms.TreeNode
+
+            If IsNothing(row.Koppelung) Then
+
+
+
+                TreeView.Nodes.Add(row.GUID, row.BMK)
+                zaehler = zaehler - 1
+                Debug.Print("Wurzel: " & row.BMK)
+            End If
+
+        Next
+
+        '
+        'Knoten an Wurzeln anhängen
+        '
+        KnotenEinfuegen(TreeView.Nodes)
+
+
+
+    End Sub
+
+    Private Function KnotenEinfuegen(Knoten As TreeNodeCollection) As Long
+
+        For Each Node As TreeNode In Knoten
+
+            Node.
+
+
+
+        Next
+
+
+
+
+
+
+        If Knoten.ContainsKey Then
+            ContainsKey(row.Koppelung) Then
+
+                    KontenEinfuegen(0
+            zaehler = zaehler - 1
+            Debug.Print("Sub: " & row.BMK)
+        End If
+
+    End Function
 
 End Class
