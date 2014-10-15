@@ -28,11 +28,14 @@ Partial Class SundA_Form
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.DataGridView_Baugruppe = New System.Windows.Forms.DataGridView()
         Me.TabControl1.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.DataGridView_Baugruppe, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -60,6 +63,7 @@ Partial Class SundA_Form
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.DataGridView_Baugruppe)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
@@ -74,7 +78,7 @@ Partial Class SundA_Form
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.Location = New System.Drawing.Point(193, 7)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(799, 61)
+        Me.Panel1.Size = New System.Drawing.Size(799, 53)
         Me.Panel1.TabIndex = 2
         '
         'TreeView1
@@ -98,6 +102,15 @@ Partial Class SundA_Form
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Funktionen"
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(135, 19)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(121, 30)
+        Me.Button3.TabIndex = 2
+        Me.Button3.Text = "Auswählen"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'Button2
         '
         Me.Button2.Location = New System.Drawing.Point(693, 20)
@@ -116,14 +129,14 @@ Partial Class SundA_Form
         Me.Button1.Text = "Komponente anfügen"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Button3
+        'DataGridView_Baugruppe
         '
-        Me.Button3.Location = New System.Drawing.Point(135, 19)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(121, 30)
-        Me.Button3.TabIndex = 2
-        Me.Button3.Text = "Auswählen"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.DataGridView_Baugruppe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView_Baugruppe.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView_Baugruppe.Location = New System.Drawing.Point(3, 3)
+        Me.DataGridView_Baugruppe.Name = "DataGridView_Baugruppe"
+        Me.DataGridView_Baugruppe.Size = New System.Drawing.Size(789, 484)
+        Me.DataGridView_Baugruppe.TabIndex = 2
         '
         'SundA_Form
         '
@@ -137,7 +150,9 @@ Partial Class SundA_Form
         Me.Name = "SundA_Form"
         Me.Text = "Sensoren und Aktoren"
         Me.TabControl1.ResumeLayout(False)
+        Me.TabPage2.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
+        CType(Me.DataGridView_Baugruppe, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -150,4 +165,5 @@ Partial Class SundA_Form
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents DataGridView_Baugruppe As System.Windows.Forms.DataGridView
 End Class

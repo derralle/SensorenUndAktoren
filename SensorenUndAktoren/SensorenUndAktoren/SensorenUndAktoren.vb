@@ -19,8 +19,9 @@ Public Class SensorenUndAktoren
 
     Public AttributDefinition As IAttributeDef
     
-    Dim BgDataset As New SensorenUndAktoren_BG
-
+    Dim WithEvents BgDataset As New SensorenUndAktoren_BG
+    Dim WithEvents BgBaum As New TreeControlItem
+    Dim WithEvents Form As New SundA_Form
 
     Public Sub New()
 
@@ -90,9 +91,9 @@ Public Class SensorenUndAktoren
         GetAllAttributes(modeldoc)
     End Sub
 
-    Public Sub BearbeitenForm()
 
-        Dim Form As New SundA_Form
+
+    Public Sub BearbeitenForm()
 
         BgDataset.Clear()
 
@@ -101,7 +102,7 @@ Public Class SensorenUndAktoren
             MsgBox("Keine Tabelle in der Baugruppe gefunden!")
             DatenAusSwxEinlesen()
             HashInTabelleSchreiben(DatenAusSwxEinlesen()) 'Hashtabelle 
-
+            Form.DataGridView_Baugruppe.DataSource = BgDataset.TabelleBaugruppe
             Form.Show()
 
         End If
@@ -174,11 +175,22 @@ Public Class SensorenUndAktoren
     End Function
 
 
+    ''' <summary>
+    ''' Tabelle in Datei Schreiben welche den selben Namen und Pfad hat wie die Baugruppe (Außer der Endung ".SundA")
+    ''' </summary>
+    ''' <remarks></remarks>
+    Private Sub BgDateiErzeugen() Handles Form.SaveExit
 
-    Private Function BgDateiErzeugen() As Boolean
 
+        Dim ModelDoc As ModelDoc2 = Me.SwApp.ActiveDoc
+        Dim Dateiname As String = ModelDoc.GetPathName
 
-    End Function
+        Dateiname = Dateiname.Substring(0, Dateiname.LastIndexOf("."))
+
+        Dateiname = Dateiname & ".SundA"
+        BgDataset.WriteXml(Dateiname)
+
+    End Sub
 
     Private Function HashInTabelleSchreiben(HashListe As List(Of String)) As Boolean
 
@@ -191,7 +203,6 @@ Public Class SensorenUndAktoren
             If BgDataset.TabelleBaugruppe.Rows.Find(item) Is Nothing Then   'Prüfen ob GUID schon vorhanden
 
                 tempRow = BgDataset.TabelleBaugruppe.NewTabelleBaugruppeRow  'Neue Zeile Erzeugen
-
                 tempRow.GUID = item 'GUId in Zeile eintragen
                 BgDataset.TabelleBaugruppe.AddTabelleBaugruppeRow(tempRow) 'Zeile in Tabelle einfügen
 
