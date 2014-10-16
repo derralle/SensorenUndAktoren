@@ -25,17 +25,17 @@ Partial Class SundA_Form
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.DataGridView_Baugruppe = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.DataGridView_Baugruppe = New System.Windows.Forms.DataGridView()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView_Baugruppe, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -71,6 +71,15 @@ Partial Class SundA_Form
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Tabelle"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'DataGridView_Baugruppe
+        '
+        Me.DataGridView_Baugruppe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView_Baugruppe.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView_Baugruppe.Location = New System.Drawing.Point(3, 3)
+        Me.DataGridView_Baugruppe.Name = "DataGridView_Baugruppe"
+        Me.DataGridView_Baugruppe.Size = New System.Drawing.Size(789, 484)
+        Me.DataGridView_Baugruppe.TabIndex = 2
         '
         'Panel1
         '
@@ -129,15 +138,6 @@ Partial Class SundA_Form
         Me.Button1.Text = "Komponente anfügen"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'DataGridView_Baugruppe
-        '
-        Me.DataGridView_Baugruppe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView_Baugruppe.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView_Baugruppe.Location = New System.Drawing.Point(3, 3)
-        Me.DataGridView_Baugruppe.Name = "DataGridView_Baugruppe"
-        Me.DataGridView_Baugruppe.Size = New System.Drawing.Size(789, 484)
-        Me.DataGridView_Baugruppe.TabIndex = 2
-        '
         'SundA_Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -151,8 +151,8 @@ Partial Class SundA_Form
         Me.Text = "Sensoren und Aktoren"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
-        Me.GroupBox1.ResumeLayout(False)
         CType(Me.DataGridView_Baugruppe, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

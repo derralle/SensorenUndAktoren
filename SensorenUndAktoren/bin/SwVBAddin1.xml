@@ -6,7 +6,26 @@ SensorenUndAktoren
 </name>
 </assembly>
 <members>
-<member name="M:SensorenUndAktoren.SensorenUndAktoren.initalisierung(SolidWorks.Interop.sldworks.SldWorks@)">
+<member name="P:SensorenUndAktoren.Baumstruktur.KnotenListe">
+	<summary>
+	</summary>
+	<value></value>
+	<returns>TreeNodeCollection</returns>
+	<remarks></remarks>
+</member><member name="P:SensorenUndAktoren.My.Resources.Resources.ResourceManager">
+	<summary>
+  Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
+</summary>
+</member><member name="P:SensorenUndAktoren.My.Resources.Resources.Culture">
+	<summary>
+  Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
+  Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
+</summary>
+</member><member name="T:SensorenUndAktoren.My.Resources.Resources">
+	<summary>
+  Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
+</summary>
+</member><member name="M:SensorenUndAktoren.SensorenUndAktoren.initalisierung(SolidWorks.Interop.sldworks.SldWorks@)">
 	<summary>
  Atributte registrieren (Nur 1x Pro Laufzeit SWX!!)
  </summary>
@@ -60,19 +79,6 @@ SensorenUndAktoren
  Baut die Baumstruktur im Form auf
  </summary>
 	<remarks></remarks>
-</member><member name="P:SensorenUndAktoren.My.Resources.Resources.ResourceManager">
-	<summary>
-  Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
-</summary>
-</member><member name="P:SensorenUndAktoren.My.Resources.Resources.Culture">
-	<summary>
-  Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
-  Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
-</summary>
-</member><member name="T:SensorenUndAktoren.My.Resources.Resources">
-	<summary>
-  Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
-</summary>
 </member><member name="T:SensorenUndAktoren.SensorenUndAktoren_BG.TabelleBaugruppeDataTable">
 	<summary>
 Represents the strongly named DataTable class.

@@ -316,63 +316,23 @@ Public Class SensorenUndAktoren
     ''' <remarks></remarks>
     ''' 
     Sub BaumstrukturAufbauen(ByRef TreeView As Windows.Forms.TreeView)
+        Dim Baum As New Baumstruktur
 
-        Dim zaehler As Long = BgDataset.TabelleBaugruppe.Rows.Count
-        Dim MaximaleIterationen As Long = 1000
-
-        TreeView.Nodes.Clear()
-
-
-        '
-        'Wurzelknoten erzeugen
-        '
         For Each row As SensorenUndAktoren_BG.TabelleBaugruppeRow In BgDataset.TabelleBaugruppe
 
-            Dim Node As New Windows.Forms.TreeNode
-
-            If IsNothing(row.Koppelung) Then
-
-
-
-                TreeView.Nodes.Add(row.GUID, row.BMK)
-                zaehler = zaehler - 1
-                Debug.Print("Wurzel: " & row.BMK)
-            End If
+            Baum.DatensatzHinzufügen(row.GUID, row.BMK, row.Koppelung)
 
         Next
 
-        '
-        'Knoten an Wurzeln anhängen
-        '
-        KnotenEinfuegen(TreeView.Nodes)
-
-
+        Baum.StrukturAufbauen(TreeView.Nodes.Add("Baugruppe", "Baugruppe"))
 
     End Sub
 
-    Private Function KnotenEinfuegen(Knoten As TreeNodeCollection) As Long
-
-        For Each Node As TreeNode In Knoten
-
-            Node.
+    Sub KomponenteEinfuegen(ByVal Koppelung As String) Handles Form.KomponenteEinfuegen
 
 
+        XXX()
 
-        Next
-
-
-
-
-
-
-        If Knoten.ContainsKey Then
-            ContainsKey(row.Koppelung) Then
-
-                    KontenEinfuegen(0
-            zaehler = zaehler - 1
-            Debug.Print("Sub: " & row.BMK)
-        End If
-
-    End Function
+    End Sub
 
 End Class

@@ -435,7 +435,7 @@ Partial Public Class SensorenUndAktoren_BG
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Overloads Function AddTabelleBaugruppeRow(ByVal Bezeichnung As String, ByVal GUID As String, ByVal Typ As String, ByVal Funktion As String, ByVal Grundstellung As String, ByVal BMK As String, ByVal Unterdrückt As String, ByVal Koppelung As String) As TabelleBaugruppeRow
+        Public Overloads Function AddTabelleBaugruppeRow(ByVal Bezeichnung As String, ByVal GUID As String, ByVal Typ As String, ByVal Funktion As String, ByVal Grundstellung As String, ByVal BMK As String, ByVal Unterdrückt As Boolean, ByVal Koppelung As String) As TabelleBaugruppeRow
             Dim rowTabelleBaugruppeRow As TabelleBaugruppeRow = CType(Me.NewRow, TabelleBaugruppeRow)
             Dim columnValuesArray() As Object = New Object() {Bezeichnung, GUID, Typ, Funktion, Grundstellung, BMK, Unterdrückt, Koppelung}
             rowTabelleBaugruppeRow.ItemArray = columnValuesArray
@@ -491,13 +491,15 @@ Partial Public Class SensorenUndAktoren_BG
             MyBase.Columns.Add(Me.columnGrundstellung)
             Me.columnBMK = New Global.System.Data.DataColumn("BMK", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnBMK)
-            Me.columnUnterdrückt = New Global.System.Data.DataColumn("Unterdrückt", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnUnterdrückt = New Global.System.Data.DataColumn("Unterdrückt", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnUnterdrückt)
             Me.columnKoppelung = New Global.System.Data.DataColumn("Koppelung", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnKoppelung)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("TabelleBaugruppeKey1", New Global.System.Data.DataColumn() {Me.columnGUID}, True))
             Me.columnGUID.AllowDBNull = False
             Me.columnGUID.Unique = True
+            Me.columnBMK.DefaultValue = CType("Namenlos", String)
+            Me.columnUnterdrückt.DefaultValue = CType(False, Boolean)
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -646,11 +648,11 @@ Partial Public Class SensorenUndAktoren_BG
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Property Bezeichnung() As String
             Get
-                Try
+                If Me.IsBezeichnungNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableTabelleBaugruppe.BezeichnungColumn), String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("Der Wert für Spalte Bezeichnung in Tabelle TabelleBaugruppe ist DBNull.", e)
-                End Try
+                End If
             End Get
             Set(value As String)
                 Me(Me.tableTabelleBaugruppe.BezeichnungColumn) = value
@@ -672,11 +674,11 @@ Partial Public Class SensorenUndAktoren_BG
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Property Typ() As String
             Get
-                Try
+                If Me.IsTypNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableTabelleBaugruppe.TypColumn), String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("Der Wert für Spalte Typ in Tabelle TabelleBaugruppe ist DBNull.", e)
-                End Try
+                End If
             End Get
             Set(value As String)
                 Me(Me.tableTabelleBaugruppe.TypColumn) = value
@@ -687,11 +689,11 @@ Partial Public Class SensorenUndAktoren_BG
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Property Funktion() As String
             Get
-                Try
+                If Me.IsFunktionNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableTabelleBaugruppe.FunktionColumn), String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("Der Wert für Spalte Funktion in Tabelle TabelleBaugruppe ist DBNull.", e)
-                End Try
+                End If
             End Get
             Set(value As String)
                 Me(Me.tableTabelleBaugruppe.FunktionColumn) = value
@@ -702,11 +704,11 @@ Partial Public Class SensorenUndAktoren_BG
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Property Grundstellung() As String
             Get
-                Try
+                If Me.IsGrundstellungNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableTabelleBaugruppe.GrundstellungColumn), String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("Der Wert für Spalte Grundstellung in Tabelle TabelleBaugruppe ist DBNull.", e)
-                End Try
+                End If
             End Get
             Set(value As String)
                 Me(Me.tableTabelleBaugruppe.GrundstellungColumn) = value
@@ -717,11 +719,11 @@ Partial Public Class SensorenUndAktoren_BG
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Property BMK() As String
             Get
-                Try
+                If Me.IsBMKNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableTabelleBaugruppe.BMKColumn), String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("Der Wert für Spalte BMK in Tabelle TabelleBaugruppe ist DBNull.", e)
-                End Try
+                End If
             End Get
             Set(value As String)
                 Me(Me.tableTabelleBaugruppe.BMKColumn) = value
@@ -730,15 +732,15 @@ Partial Public Class SensorenUndAktoren_BG
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property Unterdrückt() As String
+        Public Property Unterdrückt() As Boolean
             Get
                 Try
-                    Return CType(Me(Me.tableTabelleBaugruppe.UnterdrücktColumn), String)
+                    Return CType(Me(Me.tableTabelleBaugruppe.UnterdrücktColumn), Boolean)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("Der Wert für Spalte Unterdrückt in Tabelle TabelleBaugruppe ist DBNull.", e)
                 End Try
             End Get
-            Set(value As String)
+            Set(value As Boolean)
                 Me(Me.tableTabelleBaugruppe.UnterdrücktColumn) = value
             End Set
         End Property

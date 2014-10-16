@@ -155,6 +155,7 @@
     <Compile Include="AssemblyInfo.vb">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SensorenUndAktoren\Baumstruktur.vb" />
     <Compile Include="SensorenUndAktoren\SensorenUndAktoren_BG.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
