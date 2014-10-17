@@ -242,7 +242,6 @@
     <None Include="SensorenUndAktoren\SensorenUndAktoren_BG.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SensorenUndAktoren_BG.Designer.vb</LastGenOutput>
     </None>
     <None Include="SensorenUndAktoren\SensorenUndAktoren_BG.xss">
       <DependentUpon>SensorenUndAktoren_BG.xsd</DependentUpon>

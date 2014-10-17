@@ -12,7 +12,7 @@
   <xs:element name="SensorenUndAktoren_BG" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SensorenUndAktoren_BG" msprop:Generator_UserDSName="SensorenUndAktoren_BG">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="TabelleBaugruppe" msprop:Generator_TableClassName="TabelleBaugruppeDataTable" msprop:Generator_TableVarName="tableTabelleBaugruppe" msprop:Generator_RowChangedName="TabelleBaugruppeRowChanged" msprop:Generator_TablePropName="TabelleBaugruppe" msprop:Generator_RowDeletingName="TabelleBaugruppeRowDeleting" msprop:Generator_RowChangingName="TabelleBaugruppeRowChanging" msprop:Generator_RowEvHandlerName="TabelleBaugruppeRowChangeEventHandler" msprop:Generator_RowDeletedName="TabelleBaugruppeRowDeleted" msprop:Generator_RowClassName="TabelleBaugruppeRow" msprop:Generator_UserTableName="TabelleBaugruppe" msprop:Generator_RowEvArgName="TabelleBaugruppeRowChangeEvent">
+        <xs:element name="TabelleBaugruppe" msprop:Generator_TableClassName="TabelleBaugruppeDataTable" msprop:Generator_TableVarName="tableTabelleBaugruppe" msprop:Generator_TablePropName="TabelleBaugruppe" msprop:Generator_RowDeletingName="TabelleBaugruppeRowDeleting" msprop:Generator_RowChangingName="TabelleBaugruppeRowChanging" msprop:Generator_RowEvHandlerName="TabelleBaugruppeRowChangeEventHandler" msprop:Generator_RowDeletedName="TabelleBaugruppeRowDeleted" msprop:Generator_UserTableName="TabelleBaugruppe" msprop:Generator_RowChangedName="TabelleBaugruppeRowChanged" msprop:Generator_RowEvArgName="TabelleBaugruppeRowChangeEvent" msprop:Generator_RowClassName="TabelleBaugruppeRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Bezeichnung" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="Bezeichnung" msprop:Generator_ColumnVarNameInTable="columnBezeichnung" msprop:Generator_ColumnPropNameInTable="BezeichnungColumn" msprop:Generator_UserColumnName="Bezeichnung" type="xs:string" minOccurs="0" />
@@ -26,10 +26,23 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="WurzelTabelle" msprop:Generator_TableClassName="WurzelTabelleDataTable" msprop:Generator_TableVarName="tableWurzelTabelle" msprop:Generator_TablePropName="WurzelTabelle" msprop:Generator_RowDeletingName="WurzelTabelleRowDeleting" msprop:Generator_RowChangingName="WurzelTabelleRowChanging" msprop:Generator_RowEvHandlerName="WurzelTabelleRowChangeEventHandler" msprop:Generator_RowDeletedName="WurzelTabelleRowDeleted" msprop:Generator_UserTableName="WurzelTabelle" msprop:Generator_RowChangedName="WurzelTabelleRowChanged" msprop:Generator_RowEvArgName="WurzelTabelleRowChangeEvent" msprop:Generator_RowClassName="WurzelTabelleRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Instanz" msprop:Generator_ColumnVarNameInTable="columnInstanz" msprop:Generator_ColumnPropNameInRow="Instanz" msprop:Generator_ColumnPropNameInTable="InstanzColumn" msprop:Generator_UserColumnName="Instanz" type="xs:string" minOccurs="0" />
+              <xs:element name="Unterdrückt" msprop:Generator_ColumnVarNameInTable="columnUnterdrückt" msprop:Generator_ColumnPropNameInRow="Unterdrückt" msprop:Generator_ColumnPropNameInTable="UnterdrücktColumn" msprop:Generator_UserColumnName="Unterdrückt" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="GUID" msprop:Generator_ColumnVarNameInTable="columnGUID" msprop:Generator_ColumnPropNameInRow="GUID" msprop:Generator_ColumnPropNameInTable="GUIDColumn" msprop:Generator_UserColumnName="GUID" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="TabelleBaugruppeKey1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:TabelleBaugruppe" />
+      <xs:field xpath="mstns:GUID" />
+    </xs:unique>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:WurzelTabelle" />
       <xs:field xpath="mstns:GUID" />
     </xs:unique>
   </xs:element>
