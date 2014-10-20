@@ -331,8 +331,26 @@ Public Class SensorenUndAktoren
     Sub KomponenteEinfuegen(ByVal Koppelung As String) Handles Form.KomponenteEinfuegen
 
 
-        XXX()
+
 
     End Sub
+
+    Sub KnotenBearbeiten(GUID As String) Handles Form.NeuerFocus
+
+        Dim Tabellenname As String = BgDataset.TabelleBaugruppe.TableName
+        Dim Zeile() As DataRow
+
+        'Form auffüllen
+        Zeile = BgDataset.Tables(Tabellenname).Select(GUID)
+
+        If Zeile.Length = 1 Then
+            Form.Label_GUID = Zeile(0).Item("GUID")
+            Form.TextBox_BMK = Zeile(0).Item("BMK")
+            Form.TextBox_Bezeichnung = Zeile(0).Item("Bezeichnung")
+        End If
+
+    End Sub
+
+
 
 End Class

@@ -6,13 +6,7 @@ SensorenUndAktoren
 </name>
 </assembly>
 <members>
-<member name="P:SensorenUndAktoren.Baumstruktur.KnotenListe">
-	<summary>
-	</summary>
-	<value></value>
-	<returns>TreeNodeCollection</returns>
-	<remarks></remarks>
-</member><member name="P:SensorenUndAktoren.My.Resources.Resources.ResourceManager">
+<member name="P:SensorenUndAktoren.My.Resources.Resources.ResourceManager">
 	<summary>
   Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
 </summary>
@@ -79,7 +73,17 @@ SensorenUndAktoren
  Baut die Baumstruktur im Form auf
  </summary>
 	<remarks></remarks>
+</member><member name="P:SensorenUndAktoren.Baumstruktur.KnotenListe">
+	<summary>
+	</summary>
+	<value></value>
+	<returns>TreeNodeCollection</returns>
+	<remarks></remarks>
 </member><member name="T:SensorenUndAktoren.SensorenUndAktoren_BG.TabelleBaugruppeDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SensorenUndAktoren.SensorenUndAktoren_BG.DataTable1DataTable">
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
@@ -87,7 +91,15 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:SensorenUndAktoren.SensorenUndAktoren_BG.DataTable1Row">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:SensorenUndAktoren.SensorenUndAktoren_BG.TabelleBaugruppeRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SensorenUndAktoren.SensorenUndAktoren_BG.DataTable1RowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
