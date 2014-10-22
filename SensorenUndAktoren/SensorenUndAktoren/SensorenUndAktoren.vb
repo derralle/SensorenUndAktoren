@@ -338,15 +338,19 @@ Public Class SensorenUndAktoren
     Sub KnotenBearbeiten(GUID As String) Handles Form.NeuerFocus
 
         Dim Tabellenname As String = BgDataset.TabelleBaugruppe.TableName
-        Dim Zeile() As DataRow
+        Dim ZeilenArray() As DataRow
+        Dim Zeile As DataRow
+        Dim Ausdruck As String = "GUID = '"
+        Ausdruck = Ausdruck & GUID & "'"
 
         'Form auffüllen
-        Zeile = BgDataset.Tables(Tabellenname).Select(GUID)
+        ZeilenArray = BgDataset.Tables(Tabellenname).Select(Ausdruck)
 
-        If Zeile.Length = 1 Then
-            Form.Label_GUID = Zeile(0).Item("GUID")
-            Form.TextBox_BMK = Zeile(0).Item("BMK")
-            Form.TextBox_Bezeichnung = Zeile(0).Item("Bezeichnung")
+        If ZeilenArray.Length = 1 Then
+            Zeile = ZeilenArray(0)
+            Form.Label_GUID.Text = "ID: " & Zeile.Item("GUID").ToString
+            Form.TextBox_BMK.Text = Zeile.Item("BMK").ToString
+            Form.TextBox_Bezeichnung.Text = Zeile.Item("Bezeichnung").ToString
         End If
 
     End Sub

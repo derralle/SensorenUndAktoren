@@ -31,11 +31,13 @@ Public Class SundA_Form
 
     Private Sub TreeView1_Click(sender As Object, e As MouseEventArgs) Handles TreeView1.Click
         Dim Knoten As TreeNode
+        Dim KnotenName As String
 
 
         Knoten = TreeView1.GetNodeAt(e.X, e.Y)
         If Knoten.Level > 0 Then
-            Me.Focus_GUID = Knoten.Name
+            KnotenName = Knoten.Name
+            Me.Focus_GUID = KnotenName
         End If
 
     End Sub
