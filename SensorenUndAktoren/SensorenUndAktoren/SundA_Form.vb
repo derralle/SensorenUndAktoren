@@ -3,6 +3,7 @@
 Public Class SundA_Form
 
     Event SaveExit()
+    Event KnotenUebernehmen()
     Event KomponenteEinfuegen(Koppelung As String)
     Event NeuerFocus(GUID As String)
 
@@ -18,15 +19,18 @@ Public Class SundA_Form
     End Property
 
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button_Uebernehmen.Click
-        RaiseEvent SaveExit()
+    Private Sub Uebernehmen(sender As Object, e As EventArgs) Handles Button_Uebernehmen.Click
+        RaiseEvent KnotenUebernehmen()
     End Sub
 
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button_KompAnfuegen.Click
+    Private Sub KomponenteAnfuegen(sender As Object, e As EventArgs) Handles Button_KompAnfuegen.Click
         RaiseEvent KomponenteEinfuegen(TreeView1.SelectedNode.Name)
     End Sub
 
+    Private Sub SpeichernSchließen() Handles Button_SpeichernSchließen.Click
+        RaiseEvent SaveExit()
+    End Sub
 
 
     Private Sub TreeView1_Click(sender As Object, e As MouseEventArgs) Handles TreeView1.Click

@@ -192,9 +192,6 @@ Public Class SensorenUndAktoren
         Else
             BgDateiLesen = False
         End If
-
-
-
     End Function
 
 
@@ -335,7 +332,12 @@ Public Class SensorenUndAktoren
 
     End Sub
 
-    Sub KnotenBearbeiten(GUID As String) Handles Form.NeuerFocus
+    ''' <summary>
+    ''' Liest die ausgewählte Zeile in das Form ein
+    ''' </summary>
+    ''' <param name="GUID"></param>
+    ''' <remarks></remarks>
+    Sub TabellenzeileInFormEinlesen(GUID As String) Handles Form.NeuerFocus
 
         Dim Tabellenname As String = BgDataset.TabelleBaugruppe.TableName
         Dim ZeilenArray() As DataRow
@@ -346,15 +348,22 @@ Public Class SensorenUndAktoren
         'Form auffüllen
         ZeilenArray = BgDataset.Tables(Tabellenname).Select(Ausdruck)
 
-        If ZeilenArray.Length = 1 Then
+        If ZeilenArray.Length = 1 Then 'Prüfen ob es nur einen Treffer gibt
             Zeile = ZeilenArray(0)
             Form.Label_GUID.Text = "ID: " & Zeile.Item("GUID").ToString
             Form.TextBox_BMK.Text = Zeile.Item("BMK").ToString
             Form.TextBox_Bezeichnung.Text = Zeile.Item("Bezeichnung").ToString
-        End If
+            Form.TextBox_Grundstellung.Text = Zeile.Item("Grundstellung").ToString
+            Form.TextBox_Funktion.Text = Zeile.Item("Funktion").ToString
+            Form.TextBox_Typ.Text = Zeile.Item("Typ").ToString
 
+            Form.CheckBox_unterdrueckt.Checked = Zeile.Item("Unterdrückt")
+        End If
     End Sub
 
 
+    Sub FormdatenInTabelle() Handles Form.KnotenUebernehmen
 
+
+    End Sub
 End Class

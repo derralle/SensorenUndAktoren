@@ -23,6 +23,19 @@ Partial Class SundA_Form
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.CheckBox_unterdrueckt = New System.Windows.Forms.CheckBox()
+        Me.Label_GUID = New System.Windows.Forms.Label()
+        Me.TextBox_Grundstellung = New System.Windows.Forms.TextBox()
+        Me.TextBox_Typ = New System.Windows.Forms.TextBox()
+        Me.TextBox_Funktion = New System.Windows.Forms.TextBox()
+        Me.TextBox_Bezeichnung = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TextBox_BMK = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.DataGridView_Baugruppe = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -31,23 +44,12 @@ Partial Class SundA_Form
         Me.Button_Auswaehlen = New System.Windows.Forms.Button()
         Me.Button_Uebernehmen = New System.Windows.Forms.Button()
         Me.Button_KompAnfuegen = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox_BMK = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBox_Bezeichnung = New System.Windows.Forms.TextBox()
-        Me.TextBox_Funktion = New System.Windows.Forms.TextBox()
-        Me.TextBox_Typ = New System.Windows.Forms.TextBox()
-        Me.TextBox_Grundstellung = New System.Windows.Forms.TextBox()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.Label_GUID = New System.Windows.Forms.Label()
+        Me.Button_SpeichernSchließen = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         CType(Me.DataGridView_Baugruppe, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -62,6 +64,135 @@ Partial Class SundA_Form
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(830, 509)
         Me.TabControl1.TabIndex = 1
+        '
+        'TabPage1
+        '
+        Me.TabPage1.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.TabPage1.Controls.Add(Me.CheckBox_unterdrueckt)
+        Me.TabPage1.Controls.Add(Me.Button_Uebernehmen)
+        Me.TabPage1.Controls.Add(Me.Label_GUID)
+        Me.TabPage1.Controls.Add(Me.TextBox_Grundstellung)
+        Me.TabPage1.Controls.Add(Me.TextBox_Typ)
+        Me.TabPage1.Controls.Add(Me.TextBox_Funktion)
+        Me.TabPage1.Controls.Add(Me.TextBox_Bezeichnung)
+        Me.TabPage1.Controls.Add(Me.Label5)
+        Me.TabPage1.Controls.Add(Me.Label4)
+        Me.TabPage1.Controls.Add(Me.Label3)
+        Me.TabPage1.Controls.Add(Me.Label2)
+        Me.TabPage1.Controls.Add(Me.TextBox_BMK)
+        Me.TabPage1.Controls.Add(Me.Label1)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(822, 483)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "Eigenschaften"
+        '
+        'CheckBox_unterdrueckt
+        '
+        Me.CheckBox_unterdrueckt.AutoSize = True
+        Me.CheckBox_unterdrueckt.Location = New System.Drawing.Point(88, 208)
+        Me.CheckBox_unterdrueckt.Name = "CheckBox_unterdrueckt"
+        Me.CheckBox_unterdrueckt.Size = New System.Drawing.Size(82, 17)
+        Me.CheckBox_unterdrueckt.TabIndex = 11
+        Me.CheckBox_unterdrueckt.Text = "Unterdrückt"
+        Me.CheckBox_unterdrueckt.UseVisualStyleBackColor = True
+        '
+        'Label_GUID
+        '
+        Me.Label_GUID.AutoSize = True
+        Me.Label_GUID.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_GUID.ForeColor = System.Drawing.Color.Blue
+        Me.Label_GUID.Location = New System.Drawing.Point(17, 14)
+        Me.Label_GUID.Name = "Label_GUID"
+        Me.Label_GUID.Size = New System.Drawing.Size(77, 14)
+        Me.Label_GUID.TabIndex = 10
+        Me.Label_GUID.Text = "Label_GUID"
+        '
+        'TextBox_Grundstellung
+        '
+        Me.TextBox_Grundstellung.Location = New System.Drawing.Point(88, 181)
+        Me.TextBox_Grundstellung.Name = "TextBox_Grundstellung"
+        Me.TextBox_Grundstellung.Size = New System.Drawing.Size(210, 20)
+        Me.TextBox_Grundstellung.TabIndex = 9
+        '
+        'TextBox_Typ
+        '
+        Me.TextBox_Typ.Location = New System.Drawing.Point(88, 149)
+        Me.TextBox_Typ.Name = "TextBox_Typ"
+        Me.TextBox_Typ.Size = New System.Drawing.Size(210, 20)
+        Me.TextBox_Typ.TabIndex = 8
+        '
+        'TextBox_Funktion
+        '
+        Me.TextBox_Funktion.Location = New System.Drawing.Point(88, 117)
+        Me.TextBox_Funktion.Name = "TextBox_Funktion"
+        Me.TextBox_Funktion.Size = New System.Drawing.Size(210, 20)
+        Me.TextBox_Funktion.TabIndex = 7
+        '
+        'TextBox_Bezeichnung
+        '
+        Me.TextBox_Bezeichnung.Location = New System.Drawing.Point(88, 85)
+        Me.TextBox_Bezeichnung.Name = "TextBox_Bezeichnung"
+        Me.TextBox_Bezeichnung.Size = New System.Drawing.Size(210, 20)
+        Me.TextBox_Bezeichnung.TabIndex = 6
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(14, 184)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(72, 13)
+        Me.Label5.TabIndex = 5
+        Me.Label5.Text = "Grundstellung"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(38, 120)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(48, 13)
+        Me.Label4.TabIndex = 4
+        Me.Label4.Text = "Funktion"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(61, 152)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(25, 13)
+        Me.Label3.TabIndex = 3
+        Me.Label3.Text = "Typ"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(17, 88)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(69, 13)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Bezeichnung"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'TextBox_BMK
+        '
+        Me.TextBox_BMK.Location = New System.Drawing.Point(88, 54)
+        Me.TextBox_BMK.Name = "TextBox_BMK"
+        Me.TextBox_BMK.Size = New System.Drawing.Size(210, 20)
+        Me.TextBox_BMK.TabIndex = 1
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(52, 57)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(30, 13)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "BMK"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'TabPage2
         '
@@ -105,8 +236,8 @@ Partial Class SundA_Form
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Button_SpeichernSchließen)
         Me.GroupBox1.Controls.Add(Me.Button_Auswaehlen)
-        Me.GroupBox1.Controls.Add(Me.Button_Uebernehmen)
         Me.GroupBox1.Controls.Add(Me.Button_KompAnfuegen)
         Me.GroupBox1.Location = New System.Drawing.Point(195, 579)
         Me.GroupBox1.Name = "GroupBox1"
@@ -126,7 +257,7 @@ Partial Class SundA_Form
         '
         'Button_Uebernehmen
         '
-        Me.Button_Uebernehmen.Location = New System.Drawing.Point(719, 20)
+        Me.Button_Uebernehmen.Location = New System.Drawing.Point(17, 249)
         Me.Button_Uebernehmen.Name = "Button_Uebernehmen"
         Me.Button_Uebernehmen.Size = New System.Drawing.Size(98, 29)
         Me.Button_Uebernehmen.TabIndex = 1
@@ -142,122 +273,14 @@ Partial Class SundA_Form
         Me.Button_KompAnfuegen.Text = "Komponente anfügen"
         Me.Button_KompAnfuegen.UseVisualStyleBackColor = True
         '
-        'Label1
+        'Button_SpeichernSchließen
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(52, 57)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(30, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "BMK"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'TextBox_BMK
-        '
-        Me.TextBox_BMK.Location = New System.Drawing.Point(88, 54)
-        Me.TextBox_BMK.Name = "TextBox_BMK"
-        Me.TextBox_BMK.Size = New System.Drawing.Size(210, 20)
-        Me.TextBox_BMK.TabIndex = 1
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(17, 88)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(69, 13)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Bezeichnung"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(61, 152)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(25, 13)
-        Me.Label3.TabIndex = 3
-        Me.Label3.Text = "Typ"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(38, 120)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(48, 13)
-        Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Funktion"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(14, 184)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(72, 13)
-        Me.Label5.TabIndex = 5
-        Me.Label5.Text = "Grundstellung"
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'TextBox_Bezeichnung
-        '
-        Me.TextBox_Bezeichnung.Location = New System.Drawing.Point(88, 85)
-        Me.TextBox_Bezeichnung.Name = "TextBox_Bezeichnung"
-        Me.TextBox_Bezeichnung.Size = New System.Drawing.Size(210, 20)
-        Me.TextBox_Bezeichnung.TabIndex = 6
-        '
-        'TextBox_Funktion
-        '
-        Me.TextBox_Funktion.Location = New System.Drawing.Point(88, 117)
-        Me.TextBox_Funktion.Name = "TextBox_Funktion"
-        Me.TextBox_Funktion.Size = New System.Drawing.Size(210, 20)
-        Me.TextBox_Funktion.TabIndex = 7
-        '
-        'TextBox_Typ
-        '
-        Me.TextBox_Typ.Location = New System.Drawing.Point(88, 149)
-        Me.TextBox_Typ.Name = "TextBox_Typ"
-        Me.TextBox_Typ.Size = New System.Drawing.Size(210, 20)
-        Me.TextBox_Typ.TabIndex = 8
-        '
-        'TextBox_Grundstellung
-        '
-        Me.TextBox_Grundstellung.Location = New System.Drawing.Point(88, 181)
-        Me.TextBox_Grundstellung.Name = "TextBox_Grundstellung"
-        Me.TextBox_Grundstellung.Size = New System.Drawing.Size(210, 20)
-        Me.TextBox_Grundstellung.TabIndex = 9
-        '
-        'TabPage1
-        '
-        Me.TabPage1.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.TabPage1.Controls.Add(Me.Label_GUID)
-        Me.TabPage1.Controls.Add(Me.TextBox_Grundstellung)
-        Me.TabPage1.Controls.Add(Me.TextBox_Typ)
-        Me.TabPage1.Controls.Add(Me.TextBox_Funktion)
-        Me.TabPage1.Controls.Add(Me.TextBox_Bezeichnung)
-        Me.TabPage1.Controls.Add(Me.Label5)
-        Me.TabPage1.Controls.Add(Me.Label4)
-        Me.TabPage1.Controls.Add(Me.Label3)
-        Me.TabPage1.Controls.Add(Me.Label2)
-        Me.TabPage1.Controls.Add(Me.TextBox_BMK)
-        Me.TabPage1.Controls.Add(Me.Label1)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(822, 483)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Eigenschaften"
-        '
-        'Label_GUID
-        '
-        Me.Label_GUID.AutoSize = True
-        Me.Label_GUID.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_GUID.ForeColor = System.Drawing.Color.Blue
-        Me.Label_GUID.Location = New System.Drawing.Point(17, 14)
-        Me.Label_GUID.Name = "Label_GUID"
-        Me.Label_GUID.Size = New System.Drawing.Size(77, 14)
-        Me.Label_GUID.TabIndex = 10
-        Me.Label_GUID.Text = "Label_GUID"
+        Me.Button_SpeichernSchließen.Location = New System.Drawing.Point(670, 19)
+        Me.Button_SpeichernSchließen.Name = "Button_SpeichernSchließen"
+        Me.Button_SpeichernSchließen.Size = New System.Drawing.Size(147, 30)
+        Me.Button_SpeichernSchließen.TabIndex = 3
+        Me.Button_SpeichernSchließen.Text = "Speichern und Schließen"
+        Me.Button_SpeichernSchließen.UseVisualStyleBackColor = True
         '
         'SundA_Form
         '
@@ -271,11 +294,11 @@ Partial Class SundA_Form
         Me.Name = "SundA_Form"
         Me.Text = "Sensoren und Aktoren"
         Me.TabControl1.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabPage1.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
         CType(Me.DataGridView_Baugruppe, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
-        Me.TabPage1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -300,4 +323,6 @@ Partial Class SundA_Form
     Friend WithEvents TextBox_BMK As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label_GUID As System.Windows.Forms.Label
+    Friend WithEvents CheckBox_unterdrueckt As System.Windows.Forms.CheckBox
+    Friend WithEvents Button_SpeichernSchließen As System.Windows.Forms.Button
 End Class
