@@ -25,7 +25,12 @@ Public Class SundA_Form
 
 
     Private Sub KomponenteAnfuegen(sender As Object, e As EventArgs) Handles Button_KompAnfuegen.Click
-        RaiseEvent KomponenteEinfuegen(TreeView1.SelectedNode.Name)
+        If TreeView1.SelectedNode.Level = 0 Then
+            RaiseEvent KomponenteEinfuegen("")
+        Else
+            RaiseEvent KomponenteEinfuegen(TreeView1.SelectedNode.Name)
+        End If
+
     End Sub
 
     Private Sub SpeichernSchließen() Handles Button_SpeichernSchließen.Click

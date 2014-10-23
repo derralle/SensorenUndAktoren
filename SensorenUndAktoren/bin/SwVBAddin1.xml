@@ -6,20 +6,7 @@ SensorenUndAktoren
 </name>
 </assembly>
 <members>
-<member name="P:SensorenUndAktoren.My.Resources.Resources.ResourceManager">
-	<summary>
-  Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
-</summary>
-</member><member name="P:SensorenUndAktoren.My.Resources.Resources.Culture">
-	<summary>
-  Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
-  Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
-</summary>
-</member><member name="T:SensorenUndAktoren.My.Resources.Resources">
-	<summary>
-  Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
-</summary>
-</member><member name="M:SensorenUndAktoren.SensorenUndAktoren.initalisierung(SolidWorks.Interop.sldworks.SldWorks@)">
+<member name="M:SensorenUndAktoren.SensorenUndAktoren.initalisierung(SolidWorks.Interop.sldworks.SldWorks@)">
 	<summary>
  Atributte registrieren (Nur 1x Pro Laufzeit SWX!!)
  </summary>
@@ -79,12 +66,27 @@ SensorenUndAktoren
  </summary>
 	<param name="GUID"></param>
 	<remarks></remarks>
-</member><member name="P:SensorenUndAktoren.Baumstruktur.KnotenListe">
+</member><member name="M:SensorenUndAktoren.SensorenUndAktoren.KnotenAktualisieren(System.Windows.Forms.TreeView@,System.String@)">
 	<summary>
-	</summary>
-	<value></value>
-	<returns>TreeNodeCollection</returns>
+ Aktualisiert das Treeview und stellt sicher das
+ der gewählte Treenode sichtbar ist
+ </summary>
+	<param name="TreeView"></param>
+	<param name="GUID"></param>
 	<remarks></remarks>
+</member><member name="P:SensorenUndAktoren.My.Resources.Resources.ResourceManager">
+	<summary>
+  Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
+</summary>
+</member><member name="P:SensorenUndAktoren.My.Resources.Resources.Culture">
+	<summary>
+  Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
+  Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
+</summary>
+</member><member name="T:SensorenUndAktoren.My.Resources.Resources">
+	<summary>
+  Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
+</summary>
 </member><member name="T:SensorenUndAktoren.SensorenUndAktoren_BG.TabelleBaugruppeDataTable">
 	<summary>
 Represents the strongly named DataTable class.
@@ -113,6 +115,12 @@ Row event argument class
 	<summary>
 Represents a strongly typed in-memory cache of data.
 </summary>
+</member><member name="P:SensorenUndAktoren.Baumstruktur.KnotenListe">
+	<summary>
+	</summary>
+	<value></value>
+	<returns>TreeNodeCollection</returns>
+	<remarks></remarks>
 </member>
 </members>
 </doc>

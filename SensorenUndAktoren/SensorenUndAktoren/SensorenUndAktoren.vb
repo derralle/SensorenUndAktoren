@@ -314,6 +314,10 @@ Public Class SensorenUndAktoren
     ''' 
     Sub BaumstrukturAufbauen(ByRef TreeView As Windows.Forms.TreeView)
         Dim Baum As New Baumstruktur
+        Dim Knoten As TreeNode
+
+        'Treeview löschen
+        TreeView.Nodes.Clear()
 
         For Each row As SensorenUndAktoren_BG.TabelleBaugruppeRow In BgDataset.TabelleBaugruppe
 
@@ -323,9 +327,32 @@ Public Class SensorenUndAktoren
 
         Baum.StrukturAufbauen(TreeView.Nodes.Add("Baugruppe", "Baugruppe"))
 
+        If IsNothing(Form.Focus_GUID) = False Then
+
+            Knoten = TreeView.Nodes.Find(Form.Focus_GUID, True)(0)
+            Knoten.EnsureVisible()
+
+        End If
     End Sub
 
+    ''' <summary>
+    ''' Fügt ein die Formdaten in die Tabelle ein
+    ''' </summary>
+    ''' <param name="Koppelung">GUID der Vaterzeile</param>
+    ''' <remarks></remarks>
     Sub KomponenteEinfuegen(ByVal Koppelung As String) Handles Form.KomponenteEinfuegen
+
+        Dim Zeile As SensorenUndAktoren_BG.TabelleBaugruppeRow
+        Dim NeueGUID As String = Guid.NewGuid.ToString
+
+
+        Zeile = BgDataset.TabelleBaugruppe.NewRow()
+        Zeile.GUID = NeueGUID
+        Zeile.Koppelung = Koppelung
+        BgDataset.TabelleBaugruppe.Rows.Add(Zeile)
+
+        Form.Focus_GUID = NeueGUID
+        BaumstrukturAufbauen(Form.TreeView1)
 
 
 
@@ -358,12 +385,63 @@ Public Class SensorenUndAktoren
             Form.TextBox_Typ.Text = Zeile.Item("Typ").ToString
 
             Form.CheckBox_unterdrueckt.Checked = Zeile.Item("Unterdrückt")
+        Else
+            MsgBox("Fehler GUID existiert mehrfach!")
         End If
     End Sub
 
-
+    ''' <summary>
+    ''' Schreibt die Formdaten in die Tabelle
+    ''' </summary>
+    ''' <remarks></remarks>
     Sub FormdatenInTabelle() Handles Form.KnotenUebernehmen
+
+        Dim Tabellenname As String = BgDataset.TabelleBaugruppe.TableName
+        Dim ZeilenArray() As DataRow
+        Dim Zeile As DataRow
+        Dim Ausdruck As String = "GUID = '"
+        Ausdruck = Ausdruck & Form.Focus_GUID & "'"
+
+        ZeilenArray = BgDataset.Tables(Tabellenname).Select(Ausdruck) 'Zeile mit entsprechender GUID aus Tabelle holen
+
+        If ZeilenArray.Length = 1 Then 'Prüfen ob es nur einen Treffer gibt
+            Zeile = ZeilenArray(0)
+
+            Zeile.Item("BMK") = Form.TextBox_BMK.Text
+            Zeile.Item("Bezeichnung") = Form.TextBox_Bezeichnung.Text
+            Zeile.Item("Grundstellung") = Form.TextBox_Grundstellung.Text
+            Zeile.Item("Funktion") = Form.TextBox_Funktion.Text
+            Zeile.Item("Typ") = Form.TextBox_Typ.Text
+
+            Zeile.Item("Unterdrückt") = Form.CheckBox_unterdrueckt.Checked
+        Else
+            MsgBox("Fehler GUID existiert mehrfach!")
+        End If
+
+        KnotenAktualisieren(Form.TreeView1, Form.Focus_GUID)
+
+    End Sub
+
+
+    ''' <summary>
+    ''' Aktualisiert das Treeview und stellt sicher das
+    ''' der gewählte Treenode sichtbar ist
+    ''' </summary>
+    ''' <param name="TreeView"></param>
+    ''' <param name="GUID"></param>
+    ''' <remarks></remarks>
+    Private Sub KnotenAktualisieren(ByRef TreeView As TreeView, ByRef GUID As String)
+
+        Dim Knoten As TreeNode
+
+        BaumstrukturAufbauen(Form.TreeView1)
+
+        Knoten = TreeView.Nodes.Find(Form.Focus_GUID, True)(0)
+        Knoten.EnsureVisible()
 
 
     End Sub
+
+
+
 End Class
