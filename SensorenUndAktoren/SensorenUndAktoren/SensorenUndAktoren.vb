@@ -336,7 +336,7 @@ Public Class SensorenUndAktoren
     End Sub
 
     ''' <summary>
-    ''' Fügt ein die Formdaten in die Tabelle ein
+    ''' Erzeugt eine neue Komponente
     ''' </summary>
     ''' <param name="Koppelung">GUID der Vaterzeile</param>
     ''' <remarks></remarks>
@@ -346,16 +346,13 @@ Public Class SensorenUndAktoren
         Dim NeueGUID As String = Guid.NewGuid.ToString
 
 
-        Zeile = BgDataset.TabelleBaugruppe.NewRow()
+        Zeile = BgDataset.TabelleBaugruppe.NewRow() 'neue Zeile erzeugen
         Zeile.GUID = NeueGUID
         Zeile.Koppelung = Koppelung
         BgDataset.TabelleBaugruppe.Rows.Add(Zeile)
 
         Form.Focus_GUID = NeueGUID
         BaumstrukturAufbauen(Form.TreeView1)
-
-
-
 
     End Sub
 
